@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>usuarios</h1>
+  <a th:href="@{/add}">Crear usuario</a> 
+  <div th:if="${users != null and !users.empty}">
+    <table border="1">
+ <tr>
+   <th>nombre</th>
+   <th>apellido</th>
+   <th>dni</th>
+   <th>dependencia</th>
+   <th>cargo</th>
+   <th>email</th>
+   <th>editar</th>
+   <th>eliminar</th>
+ </tr>
+ <tr th:each="user : ${users}">
+  <th th:text="${user.name}">nombre</th>
+  <th th:text="${user.lastName}">apellido</th>
+  <th th:text="${user.dni}">dni</th>
+  <th th:text="${user.dependencia}">dependencia</th>
+  <th th:text="${user.position}">cargo</th>
+  <th th:text="${user.email}">email</th>
+  <th><a th:href="@{/edit/} + ${user.id}" th:text="editar"></a></th>
+  <th><a th:href="@{/delete/} + ${user.id}" th:text="eliminar"></a></th>
+ </tr>
+    </table>
+  </div> 
+</body>
+</html>

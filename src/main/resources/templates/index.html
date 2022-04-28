@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+        }
+        nav{
+            background-color: yellow;
+            height: 15vh;
+            min-height: 15vh;
+        }
+        footer{
+            background-color: rgb(107, 107, 107);
+            height: 15vh;
+            min-height: 15vh;
+        }
+        section{
+            min-height: calc(100vh - 30vh);
+        }
+    </style>
+    <nav>
+        contedido navbar
+    </nav>
+    <section>
+        <h1>TICKETERA Agencia</h1>
+        <h2>Ticketera pare reportar cualquier incidencia que se presente en sistema</h2>
+        <a th:href="@{/ticket/add}">levantar ticket</a>
+        <form th:action="@{/ticket/getTicket}" method="get">
+            <h3>seguimiento de ticket</h3>
+            <label for="">Ingrese el Id de seguimiento</label>
+            <input type="text" name="id" id="id">
+            <input type="submit" value="enviar">
+
+        </form>
+    </section>
+  <footer>
+contenido pie
+  </footer>  
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+</head>
+    <body>
+        <form th:action="@{/ticket/save}" method="post" th:object="${ticketSupport}">
+       
+        <label for="name">Nombre</label>
+       <input type="text" name="name" id="name" th:field="*{name}"/>
+
+        <label for="lastName">Apellido</label>
+       <input type="text" name="lastName" id="lastName" th:field="*{lastName}"/>
+       
+           <label for="email">Email</label>
+       <input type="email" name="email" id="email" th:field="*{email}"/>
+
+          <label for="rol">Rol</label>
+       <input type="text" name="rol" id="rol" th:field="*{rol}"/> 
+           
+        <label for="institute">Instituto</label>
+       <input type="text" name="institute" id="institute" th:field="*{institute}"/>
+        <label for="description">descripcion</label>
+       <input type="text" name="description" id="description" />
+
+
+     <input type="submit" name="guardar"value="guardar">
+    
+    </form>
+    </body>
+</html>

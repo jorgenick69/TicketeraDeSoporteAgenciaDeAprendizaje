@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+</head>
+<body>
+        <style>
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+    <h1>Datos de la persona</h1>
+    <form th:action="@{/save}" method="post" th:object="${user}">
+        <input type="hidden" name="id" id="id" th:field="*{id}">
+        <label for="name">Nombre</label>
+       <input type="text" name="name" id="name" th:field="*{name}">
+
+        <label for="lastName">Apellido</label>
+       <input type="text" name="lastName" id="lastName" th:field="*{lastName}">
+
+        <label for="dni">Dni</label>
+       <input type="text" name="dni" id="dni" th:field="*{dni}">
+
+        
+        <label for="dependencia">Dependencia</label>
+       <input type="text" name="dependencia" id="dependencia" th:field="*{dependencia}">
+
+        <label for="position">Cargo</label>
+       <input type="text" name="position" id="position" th:field="*{position}">
+
+        <label for="email">Email</label>
+       <input type="email" name="email" id="email" th:field="*{email}">
+
+        <label for="confirmemail">Confirme Email</label>
+        <input type="email" name="confirmemail" id="confirmemail">
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" th:field="*{password}">
+
+        <label for="confirmpassword">Confirme Password</label>
+        <input type="password" name="confirmpassword" id="confirmpassword">
+
+     <input type="submit" name="guardar"value="guardar">
+     <a th:href="@{/}">regresar</a>
+    </form>
+</body>
+</html>
