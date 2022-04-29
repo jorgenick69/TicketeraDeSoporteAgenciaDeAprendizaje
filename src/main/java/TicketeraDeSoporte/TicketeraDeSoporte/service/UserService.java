@@ -4,7 +4,7 @@
  */
 package TicketeraDeSoporte.TicketeraDeSoporte.service;
 
-import TicketeraDeSoporte.TicketeraDeSoporte.entity.User;
+import TicketeraDeSoporte.TicketeraDeSoporte.entity.UserNew;
 import java.util.List;
 
 /**
@@ -12,9 +12,9 @@ import java.util.List;
  * @author Jorge Dominguez
  */
 public interface UserService {
-    public List<User> findAllUser();
-    public void save(User user);
-    public void delete(User user);
-    public User findUser(User user);
+    public List<UserNew> findAllUser();
+    public void save(UserNew user);
+    public void delete(UserNew user);
+    public UserNew findUser(UserNew user);
     
 }

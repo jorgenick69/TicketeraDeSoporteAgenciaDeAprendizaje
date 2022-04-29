@@ -26,25 +26,28 @@
         }
         section{
             min-height: calc(100vh - 30vh);
+            display: flex;
+        }
+        .mensajes{
+            display: flex;
+            flex-direction: column;
         }
     </style>
     <nav>
         contedido navbar
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="logout">
-        </form>
     </nav>
-    <section>
-        <h1>TICKETERA Agencia</h1>
-        <h2>Ticketera pare reportar cualquier incidencia que se presente en sistema</h2>
-        <a th:href="@{/ticket/add}">levantar ticket</a>
-        <form th:action="@{/ticket/getTicket}" method="get">
-            <h3>seguimiento de ticket</h3>
-            <label for="">Ingrese el Id de seguimiento</label>
-            <input type="text" name="id" id="id">
-            <input type="submit" value="enviar">
-
-        </form>
+    <section >
+      <div>
+        <h1>login</h1>
+       
+           <form th:action="@{/logincheck}" method="post">
+               <label for="username">nombre de usuario</label>
+               <input type="text" name="username" id="username">
+               <label for="password">contraseña</label>
+               <input type="password" name="password" id="password">
+               <input type="submit" value="">
+           </form>
+       </div>
     </section>
   <footer>
 contenido pie

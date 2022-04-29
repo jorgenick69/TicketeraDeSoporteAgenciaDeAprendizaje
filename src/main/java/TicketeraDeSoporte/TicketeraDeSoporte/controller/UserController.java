@@ -1,10 +1,11 @@
 
 package TicketeraDeSoporte.TicketeraDeSoporte.controller;
 
-import TicketeraDeSoporte.TicketeraDeSoporte.entity.User;
+import TicketeraDeSoporte.TicketeraDeSoporte.entity.UserNew;
 import TicketeraDeSoporte.TicketeraDeSoporte.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Jorge Dominguez
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/us")
 public class UserController {
 
     @Autowired
@@ -30,34 +31,35 @@ public class UserController {
     }
     
     @GetMapping("/users")
-    public String user(Model model) {
+    public String userL(Model model) {
         var users = userService.findAllUser();
-        for (User user : users) {
+        for (UserNew user : users) {
             System.out.println(user.getName());
         }
         model.addAttribute("users", users);
-        return null;
+        return "vusers";
     }
-    @GetMapping("/add")
-    public String add(User user) {
+    @GetMapping("/adding")
+    public String add(UserNew userNew) {
               
         return "modify-user";
     }
     @PostMapping("/save")
-    public String save(User user) {
-       userService.save(user);
+    public String save(UserNew userNew) {
+       userNew.setPassword(new BCryptPasswordEncoder().encode(userNew.getPassword()));
+       userService.save(userNew);
         
         return "redirect:/";
     }
     @GetMapping("/edit/{id}")
-    public String edit(User user, Model model){
-        user=userService.findUser(user);
-        model.addAttribute("user",user);
+    public String edit(UserNew users, Model model){
+        users=userService.findUser(users);
+        model.addAttribute("user",users);
         return "modify-user";
     
     }
     @GetMapping("/delete/{id}")
-    public String delete(User user){
+    public String delete(UserNew user){
        userService.delete(user);
         
         return "redirect:/";

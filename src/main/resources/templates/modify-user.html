@@ -17,7 +17,7 @@
         }
     </style>
     <h1>Datos de la persona</h1>
-    <form th:action="@{/save}" method="post" th:object="${user}">
+    <form th:action="@{/us/save}" method="post" th:object="${userNew}">
         <input type="hidden" name="id" id="id" th:field="*{id}">
         <label for="name">Nombre</label>
        <input type="text" name="name" id="name" th:field="*{name}">
@@ -35,6 +35,9 @@
         <label for="position">Cargo</label>
        <input type="text" name="position" id="position" th:field="*{position}">
 
+        <label for="username">username</label>
+       <input type="text" name="username" id="username" th:field="*{username}">
+           
         <label for="email">Email</label>
        <input type="email" name="email" id="email" th:field="*{email}">
 

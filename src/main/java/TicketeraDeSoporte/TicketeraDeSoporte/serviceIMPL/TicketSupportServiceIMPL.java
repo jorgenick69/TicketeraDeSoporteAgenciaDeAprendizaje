@@ -6,7 +6,7 @@ package TicketeraDeSoporte.TicketeraDeSoporte.serviceIMPL;
 
 import TicketeraDeSoporte.TicketeraDeSoporte.entity.Ask;
 import TicketeraDeSoporte.TicketeraDeSoporte.entity.TicketSupport;
-import TicketeraDeSoporte.TicketeraDeSoporte.entity.User;
+import TicketeraDeSoporte.TicketeraDeSoporte.entity.UserNew;
 import TicketeraDeSoporte.TicketeraDeSoporte.repository.TicketSupportRepository;
 import TicketeraDeSoporte.TicketeraDeSoporte.service.AskService;
 import TicketeraDeSoporte.TicketeraDeSoporte.service.TicketSupportService;
